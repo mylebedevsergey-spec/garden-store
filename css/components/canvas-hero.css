@@ -1,0 +1,40 @@
+/* canvas-hero.css, фоновый холст с анимацией (HTML5 Canvas API) */
+
+.canvas-hero {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.canvas-panel {
+  position: relative;
+  margin: 28px 0 8px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(160deg, #eef7ef, #dcefe2 60%, #cfe8d7);
+  box-shadow: var(--shadow-sm);
+}
+
+.canvas-panel__stage {
+  display: block;
+  width: 100%;
+  height: 250px;
+  cursor: crosshair;
+}
+
+.canvas-panel__hint {
+  position: absolute;
+  left: 18px;
+  bottom: 14px;
+  margin: 0;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}

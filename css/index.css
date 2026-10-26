@@ -1,0 +1,173 @@
+/* ============================================================
+   index.css, общие стили: токены, сброс, типографика, каркас
+   ============================================================ */
+
+:root {
+  /* Палитра */
+  --color-bg: #f6f7f2;
+  --color-surface: #ffffff;
+  --color-ink: #1d2a22;
+  --color-muted: #6b7a70;
+  --color-line: #e2e7dd;
+  --color-primary: #2f7d4f;
+  --color-primary-dark: #215c39;
+  --color-accent: #e8b04b;
+  --color-danger: #c0442f;
+
+  /* Тени и радиусы */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 26px;
+  --shadow-sm: 0 2px 8px rgba(29, 42, 34, 0.06);
+  --shadow-md: 0 12px 30px rgba(29, 42, 34, 0.10);
+  --shadow-lg: 0 24px 60px rgba(29, 42, 34, 0.16);
+
+  /* Анимации */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --speed: 220ms;
+
+  /* Токены размеров */
+  --header-h: 76px;
+  --container: 1180px;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--color-ink);
+  background: var(--color-bg);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+button { font: inherit; color: inherit; }
+
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3 { margin: 0 0 12px; line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(28px, 4vw, 48px); font-weight: 800; }
+h2 { font-size: clamp(22px, 2.6vw, 32px); font-weight: 800; }
+h3 { font-size: 19px; font-weight: 700; }
+p { margin: 0 0 12px; }
+
+.app {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: calc(var(--header-h) + 28px) 20px 72px;
+}
+
+/* ---------- Кнопки ---------- */
+.button {
+  --btn-bg: var(--color-primary);
+  --btn-ink: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--btn-bg);
+  color: var(--btn-ink);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--speed) var(--ease-out), box-shadow var(--speed) var(--ease-out),
+    background-color var(--speed) var(--ease-out);
+}
+
+.button:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.button:active { transform: translateY(0) scale(0.985); }
+.button:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+
+.button--primary { --btn-bg: var(--color-primary); }
+.button--primary:hover { background: var(--color-primary-dark); }
+.button--ghost { --btn-bg: transparent; --btn-ink: var(--color-primary); box-shadow: inset 0 0 0 2px var(--color-primary); }
+.button--ghost:hover { background: rgba(47, 125, 79, 0.08); }
+.button--wide { width: 100%; }
+
+/* ---------- Утилиты ---------- */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(47, 125, 79, 0.10);
+  color: var(--color-primary-dark);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.muted { color: var(--color-muted); }
+
+.price {
+  font-weight: 800;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+.price--old {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-muted);
+  text-decoration: line-through;
+}
+
+/* ---------- Футер ---------- */
+.footer {
+  border-top: 1px solid var(--color-line);
+  padding: 28px 20px 40px;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.footer__meta { margin: 0; opacity: 0.7; }
+
+/* ---------- Тост ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translate(-50%, 24px);
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: var(--color-ink);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--speed) var(--ease-out), transform var(--speed) var(--ease-out);
+  z-index: 60;
+}
+
+.toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- Появление страниц ---------- */
+.page {
+  animation: page-in 420ms var(--ease-out) both;
+}
+
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

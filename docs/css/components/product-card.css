@@ -1,0 +1,83 @@
+/* product-card.css, карточка товара с 3D-наведением */
+
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  transform-style: preserve-3d;
+  transition: transform 420ms var(--ease-out), box-shadow 420ms var(--ease-out);
+  animation: card-in 480ms var(--ease-out) both;
+}
+
+.product-card:hover {
+  transform: perspective(820px) rotateX(4deg) rotateY(-5deg) translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(18px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.product-card__media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 168px;
+  border-radius: 12px;
+  background: radial-gradient(circle at 30% 25%, #f2f9f1, #e3f0e6 70%);
+  overflow: hidden;
+}
+
+.product-card__emoji {
+  display: block;
+  width: 112px;
+  height: 112px;
+  transform: translateZ(30px);
+  transition: transform 520ms var(--ease-out);
+}
+
+.product-card__emoji svg { display: block; width: 100%; height: 100%; }
+
+.product-card:hover .product-card__emoji { transform: translateZ(46px) scale(1.08) rotate(-4deg); }
+
+.product-card__tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.product-card__title {
+  margin: 14px 0 4px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.product-card__meta { color: var(--color-muted); font-size: 13px; margin-bottom: 12px; }
+
+.product-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.product-card__add {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color var(--speed) var(--ease-out), transform var(--speed) var(--ease-out);
+}
+
+.product-card__add:hover { background: var(--color-primary-dark); transform: translateY(-2px); }
+.product-card__add.is-added { background: var(--color-accent); color: #3a2b06; }
