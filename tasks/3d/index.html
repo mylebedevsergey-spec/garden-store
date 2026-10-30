@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D-трансформации</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="../../index.html">На главную</a>
+    <h1>3D-трансформации</h1>
+    <p>Три примера: переворот карточки, вращающийся куб и параллакс по слоям.</p>
+  </header>
+
+  <main>
+    <section class="demo">
+      <h2>Карточка-переворот</h2>
+      <p>Наведите курсор. Внутри контейнера две стороны, у контейнера preserve-3d, у задней стороны rotateY(180deg).</p>
+      <div class="flip">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <h3>Садовый секатор</h3>
+            <p>Лицевая сторона</p>
+          </div>
+          <div class="flip-face flip-back">
+            <h3>1 890 ₽</h3>
+            <p>Обратная сторона</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo">
+      <h2>Вращающийся куб</h2>
+      <p>Шесть граней в одном контейнере с preserve-3d, каждая сдвинута по своей оси через translateZ.</p>
+      <div class="scene">
+        <div class="cube">
+          <div class="side front">1</div>
+          <div class="side back">2</div>
+          <div class="side right">3</div>
+          <div class="side left">4</div>
+          <div class="side top">5</div>
+          <div class="side bottom">6</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo">
+      <h2>Параллакс по слоям</h2>
+      <p>Наведите курсор на сцену. Слои уходят вглубь на разное расстояние через translateZ, поэтому двигаются с разной скоростью.</p>
+      <div class="parallax">
+        <span class="layer far">дальний слой</span>
+        <span class="layer middle">средний слой</span>
+        <span class="layer near">ближний слой</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Учебная страница к заданию по 3D-трансформациям.</p>
+  </footer>
+</body>
+</html>

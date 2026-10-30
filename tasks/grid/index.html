@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вёрстка на гриде</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+    <header class="site-header">
+      <a class="back" href="../../index.html">На главную</a>
+      <h1>Садовая лавка</h1>
+      <p>Страница собрана на CSS Grid. Общая раскладка задана через grid-template-areas, каталог через auto-fit.</p>
+    </header>
+
+    <nav class="site-nav" aria-label="Категории">
+      <h2>Категории</h2>
+      <ul>
+        <li><a href="#tools">Инструменты</a></li>
+        <li><a href="#plants">Растения</a></li>
+        <li><a href="#pots">Кашпо</a></li>
+        <li><a href="#care">Уход</a></li>
+      </ul>
+    </nav>
+
+    <main class="site-main">
+      <h2>Каталог</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Секатор классический</h3>
+          <p>Сталь, рез до 18 мм</p>
+          <span class="price">1 890 ₽</span>
+        </article>
+        <article class="card">
+          <h3>Лопатка садовая</h3>
+          <p>Компактная, для рассады</p>
+          <span class="price">1 190 ₽</span>
+        </article>
+        <article class="card">
+          <h3>Лейка 5 л</h3>
+          <p>Съёмный рассеиватель</p>
+          <span class="price">990 ₽</span>
+        </article>
+        <article class="card">
+          <h3>Монстера деликатесная</h3>
+          <p>Высота 60 см</p>
+          <span class="price">2 490 ₽</span>
+        </article>
+        <article class="card">
+          <h3>Кашпо терракотовое</h3>
+          <p>Объём 3 л, дренаж</p>
+          <span class="price">690 ₽</span>
+        </article>
+        <article class="card">
+          <h3>Грунт универсальный 10 л</h3>
+          <p>С перлитом и биогумусом</p>
+          <span class="price">490 ₽</span>
+        </article>
+      </div>
+    </main>
+
+    <aside class="site-aside">
+      <h2>Доставка</h2>
+      <p>По городу в день заказа, от 3 000 ₽ бесплатно.</p>
+    </aside>
+
+    <footer class="site-footer">
+      <p>Учебная страница к заданию по гриду.</p>
+    </footer>
+  </div>
+</body>
+</html>

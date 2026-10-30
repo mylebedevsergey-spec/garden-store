@@ -1,0 +1,90 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f5f6f3;
+  color: #232323;
+  line-height: 1.5;
+}
+
+/* Общая раскладка страницы на гриде */
+.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  grid-template-areas:
+    "header header"
+    "nav    main"
+    "aside  aside"
+    "footer footer";
+  gap: 16px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.site-header { grid-area: header; }
+.site-nav    { grid-area: nav; }
+.site-main   { grid-area: main; }
+.site-aside  { grid-area: aside; }
+.site-footer { grid-area: footer; }
+
+.site-header,
+.site-nav,
+.site-main,
+.site-aside,
+.site-footer {
+  background: #fff;
+  border: 1px solid #dfe4df;
+  border-radius: 10px;
+  padding: 18px;
+}
+
+.site-header h1 { margin: 6px 0; font-size: 26px; }
+.site-header p  { margin: 0; color: #555; font-size: 14px; }
+.back { color: #2f6b3a; font-size: 14px; }
+
+.site-nav h2,
+.site-main h2,
+.site-aside h2 { font-size: 18px; margin: 0 0 10px; }
+
+.site-nav ul { list-style: none; margin: 0; padding: 0; }
+.site-nav li { margin-bottom: 8px; }
+.site-nav a { color: #2f6b3a; }
+
+/* Каталог: сетка сама решает, сколько колонок влезет */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 6px;
+  padding: 14px;
+  border: 1px solid #e3e7e3;
+  border-radius: 8px;
+  background: #fbfcfa;
+}
+
+.card h3 { margin: 0; font-size: 16px; }
+.card p  { margin: 0; color: #666; font-size: 14px; }
+.price   { font-weight: 600; color: #2f6b3a; }
+
+.site-aside p { margin: 0; color: #555; font-size: 14px; }
+
+.site-footer p { margin: 0; color: #666; font-size: 13px; }
+
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "aside"
+      "footer";
+  }
+}
