@@ -11,7 +11,9 @@ DIST="$HERE/docs"
 
 rm -rf "$DIST"
 mkdir -p "$DIST"
-cp -r "$HERE/index.html" "$HERE/404.html" "$HERE/css" "$HERE/js" "$HERE/assets" "$DIST/"
+for item in index.html 404.html css js assets tasks; do
+  [ -e "$HERE/$item" ] && cp -r "$HERE/$item" "$DIST/"
+done
 
 # <base href> — чтобы ссылки и модули работали из подкаталога
 python3 - "$DIST/index.html" "$BASE" <<'PY'
